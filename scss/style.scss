@@ -1,0 +1,551 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%; //10px
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	color: #fff;
+	height: 100vh;
+	background-image: linear-gradient(
+			rgba(20, 26, 35, 0.5),
+			rgba(20, 26, 35, 0.5)
+		),
+		url('https://sivber.github.io/strona/img/background.webp');
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	font-size: 1.6rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+	font-size: 1.2rem;
+	padding-bottom: 0.4em;
+}
+
+.scroll-lock {
+	overflow-y: hidden;
+}
+
+.nav {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	top: 0;
+	padding: 2.5em 0;
+	height: 10vh;
+	width: 100vw;
+	background-color: transparent;
+	z-index: 100;
+
+	&__logo {
+		position: fixed;
+		width: 2.6em;
+		margin: 1em;
+		aspect-ratio: 1.11 / 1;
+		transform: translateY(-2em);
+		z-index: 100;
+	}
+}
+
+.burger-btn {
+	position: fixed;
+	width: 35px;
+	height: 30px;
+	margin: 2em 0;
+	right: 1.8em;
+	cursor: pointer;
+	z-index: 1000;
+}
+.burger-btn .burger-btn__line {
+	background-color: #fff;
+	position: absolute;
+	border-radius: 2px;
+	transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+	width: 100%;
+	height: 4px;
+	transition-duration: 500ms;
+}
+.burger-btn span:nth-child(1) {
+	top: 0px;
+	left: 0px;
+}
+.burger-btn span:nth-child(2) {
+	top: 13px;
+	left: 0px;
+	opacity: 1;
+}
+.burger-btn span:nth-child(3) {
+	bottom: 0px;
+	left: 0px;
+}
+
+.burger-btn.burger-btn__open span:nth-child(1) {
+	transform: rotate(45deg);
+	top: 13px;
+}
+.burger-btn.burger-btn__open span:nth-child(2) {
+	opacity: 0;
+}
+.burger-btn.burger-btn__open span:nth-child(3) {
+	transform: rotate(-45deg);
+	top: 13px;
+}
+
+.navigation {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	transform: translateX(150%);
+	transition: transform 0.5s;
+	z-index: 50;
+	&__open {
+		transform: translateX(0);
+		background: rgba(0, 0, 0, 0.3);
+		backdrop-filter: blur(10px);
+	}
+
+	&__container {
+		&_links {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+			height: 70%;
+			letter-spacing: 0.2em;
+			&--link {
+				position: relative;
+				margin-top: 1.5em;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-weight: bold;
+				color: #fff;
+				font-size: 2rem;
+			}
+
+			&--image {
+				width: 50px;
+				height: 50px;
+				transform: translateY(0.3em);
+			}
+		}
+
+		&_social-media {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			height: 15%;
+
+			&--image {
+				height: 70px;
+				width: 70px;
+			}
+		}
+	}
+}
+
+.container {
+	padding: 0 2em;
+}
+
+.neon {
+	color: #f3c769;
+	animation: neonAnim 2s alternate-reverse infinite;
+	text-transform: uppercase;
+}
+
+.main {
+	padding-top: 5em;
+}
+
+.header_main {
+	text-align: center;
+
+	&_container {
+		&__title {
+			font-size: 2.5rem;
+			letter-spacing: 1px;
+		}
+
+		&__name {
+			font-size: 3.5rem;
+			font-weight: bold;
+			color: #f3c769;
+			-webkit-text-stroke: 0.4px black;
+		}
+
+		&__neon {
+			color: #f3c769;
+			animation: neonAnim 2s alternate-reverse infinite;
+			font-family: Cursive;
+			text-transform: uppercase;
+		}
+
+		&__characters {
+			width: 45%;
+			height: 45%;
+		}
+	}
+}
+
+@keyframes neonAnim {
+	from {
+		text-shadow: 0 0 10px rgba(252, 214, 98, 0.7),
+			0 0 40px rgba(252, 214, 98, 0.7), 0 0 100px #f3c769;
+	}
+	to {
+		text-shadow: 0 0 5px rgba(252, 214, 98, 0.7),
+			0 0 20px rgba(252, 214, 98, 0.7), 0 0 60px #f3c769;
+	}
+}
+
+.h2 {
+	&__title {
+		text-align: center;
+		font-size: 2.5rem;
+		font-weight: bold;
+	}
+
+	&__highlighted {
+		color: #f3c769;
+	}
+}
+
+.gamemodes {
+	margin-top: 8em;
+	&_container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		&__gamemode {
+			&_boxes {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+			}
+
+			&_box {
+				position: relative;
+				width: 80%;
+				border-radius: 0.8em;
+				margin: 1.5em;
+				padding: 0.8em;
+				background: rgba(0, 0, 0, 0.25);
+				box-shadow: 1px 0px 97px 7px rgba(0, 0, 0, 0.9);
+				-webkit-box-shadow: 1px 0px 97px 7px rgba(0, 0, 0, 0.9);
+				-moz-box-shadow: 1px 0px 97px 7px rgba(0, 0, 0, 0.9);
+				border-radius: 0.8em;
+
+				&--info {
+					padding: 1em;
+					text-align: center;
+				}
+
+				&--title {
+					color: #f3c769;
+					font-weight: bold;
+					font-size: 2rem;
+					margin-top: 1em;
+				}
+
+				&--description {
+					margin-top: 0.4em;
+					font-size: 1.3rem;
+					color: lightgray;
+				}
+
+				&--players {
+					margin: 1.2em 0;
+				}
+
+				&--image {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.ranking {
+	margin: 6em 0;
+	&_container {
+		&__title {
+			margin: 2em;
+			padding: 0;
+			text-align: center;
+
+			&--link {
+				position: relative;
+				text-decoration: none;
+				color: #fff;
+				font-size: 2.3rem;
+				font-weight: bold;
+			}
+		}
+
+		&__image_container {
+			display: flex;
+			justify-content: center;
+		}
+
+		&__image {
+			width: 35%;
+			height: 35%;
+			border-radius: 0.8em;
+		}
+	}
+}
+
+.updates {
+	margin: 6em 0;
+	&_container {
+		text-align: center;
+
+		&__link {
+			position: relative;
+			text-decoration: none;
+			color: #fff;
+			font-size: 2.3rem;
+			font-weight: bold;
+		}
+	}
+}
+
+.footer {
+	background-color: rgba(0, 0, 0, 0.3);
+	text-align: center;
+	padding: 2em;
+	width: 100%;
+	font-size: 1.4rem;
+
+	p {
+		margin: 0.8em;
+	}
+}
+
+@media (min-width: 562px) {
+	.header_main {
+		&_container {
+			&__name {
+				font-size: 4.5rem;
+			}
+		}
+	}
+
+	.gamemodes {
+		margin-top: 8em;
+		&_container {
+			&__gamemode {
+				&_box {
+					&--info {
+						text-align: left;
+						max-width: 45%;
+						padding: 0;
+					}
+
+					&--image {
+						display: block;
+						position: absolute;
+						right: 0;
+						top: 50%;
+						transform: translateY(-50%);
+						z-index: -1;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+	.header_main {
+		&_container {
+			&__name {
+				font-size: 5rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.header_main {
+		&_container {
+			&__name {
+				font-size: 5.5rem;
+			}
+		}
+	}
+	.gamemodes {
+		margin-top: 8em;
+		&_container {
+			&__title {
+				text-align: center;
+				font-size: 2.5rem;
+				font-weight: bold;
+				&--h2 {
+					font-size: 2.5rem;
+				}
+				&--highlighted {
+					color: #f3c769;
+				}
+			}
+
+			&__gamemode {
+				&_boxes {
+					align-items: stretch;
+					justify-content: center;
+					flex-direction: row;
+					flex-wrap: wrap;
+				}
+
+				&_box {
+					width: 43%;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.navigation {
+		&__container {
+			&_links {
+				&--link {
+					&::after,
+					&::before {
+						content: '';
+						position: absolute;
+						width: 0;
+						bottom: 0;
+						border-bottom: 2px solid #f3c769;
+						transition: 0.3s;
+					}
+
+					&::before {
+						right: 50%;
+					}
+
+					&::after {
+						left: 50%;
+					}
+
+					&:hover::after,
+					&:hover::before {
+						width: 50%;
+					}
+				}
+			}
+		}
+	}
+
+	.header_main {
+		text-align: center;
+
+		&_container {
+			&__name {
+				font-size: 6.5rem;
+			}
+			&__characters {
+				width: 15%;
+				aspect-ratio: 1 / 2;
+			}
+		}
+	}
+
+	.gamemodes {
+		&_container {
+			&__gamemode {
+				&_box {
+					transition: transform 0.2s;
+					&:hover {
+						transform: translateY(-1em);
+					}
+				}
+			}
+		}
+	}
+
+	.ranking {
+		&_container {
+			&__title {
+				&--link {
+					&::after,
+					&::before {
+						content: '';
+						position: absolute;
+						width: 0;
+						bottom: 0;
+						border-bottom: 2px solid #f3c769;
+						transition: 0.3s;
+					}
+
+					&::before {
+						right: 50%;
+					}
+
+					&::after {
+						left: 50%;
+					}
+
+					&:hover::after,
+					&:hover::before {
+						width: 50%;
+					}
+				}
+			}
+		}
+	}
+
+	.updates {
+		&_container {
+			&__link {
+				&::after,
+				&::before {
+					content: '';
+					position: absolute;
+					width: 0;
+					bottom: 0;
+					border-bottom: 2px solid #f3c769;
+					transition: 0.3s;
+				}
+
+				&::before {
+					right: 50%;
+				}
+
+				&::after {
+					left: 50%;
+				}
+
+				&:hover::after,
+				&:hover::before {
+					width: 50%;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1400px) {
+}
