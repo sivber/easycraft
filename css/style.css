@@ -16,7 +16,7 @@ body {
   font-family: "Poppins", sans-serif;
   color: #fff;
   height: 100vh;
-  background-image: linear-gradient(rgba(20, 26, 35, 0.5), rgba(20, 26, 35, 0.5)), url("https://sivber.github.io/website/img/background.webp");
+  background-image: linear-gradient(rgba(20, 26, 35, 0.5), rgba(20, 26, 35, 0.5)), url("https://sivber.github.io/easycraft/img/background.webp");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
